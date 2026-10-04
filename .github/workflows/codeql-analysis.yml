@@ -2,9 +2,11 @@ name: CodeQL Security Scan
 
 on:
   push:
-    branches: [ main ]
+    branches:
+      - main
   pull_request:
-    branches: [ main ]
+    branches:
+      - main
   workflow_dispatch:
 
 permissions:
@@ -13,7 +15,6 @@ permissions:
 
 jobs:
   analyze:
-    name: Analyze
     runs-on: ubuntu-latest
 
     steps:
@@ -23,7 +24,7 @@ jobs:
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v3
         with:
-          languages: javascript-typescript
+          languages: javascript
 
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v3
